@@ -12,13 +12,19 @@
     position: absolute;
 }
 .form-box{
-    width: 380px;
-    height: 480px;
+    width: 60%;
+    height: 70%;
     position: relative;
     margin: 6% auto;
     background: #fff;
     padding: 5px;
     overflow: hidden;
+}
+
+ul{
+    display: inline-block;
+    *display: inline;
+    zoom: 1
 }
 
 
@@ -51,11 +57,19 @@
 }
 
 .input-group{
-    top: 180px;
+    top: 30px;
     position: absolute;
-    width: 280px;
     transition: .5s;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    -moz-column-count: 2; /* For FireFox */
+-webkit-column-count: 2; /* For Safari/Chrome */
+column-count: 2;
+  }
+
 .input-field{
     width: 100%;
     padding: 10px 0;
@@ -87,9 +101,9 @@ span{
     bottom: 68px;
     position: absolute;
 }
-#login{
-    left: 50px;
+#bucketlist{
+    left: 300px;
 }
-#register{
-    left: 450px;
+#completed{
+    left: 400px;
 }
