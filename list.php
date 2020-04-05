@@ -27,8 +27,7 @@ session_start();
                 <?php
                     include_once 'db.php';
                     $user = $_SESSION["username"];   ////////
-                   // $table=$_SESSION["username"];
-                    $complt = 'no';
+                    $complt = "no";
                     $sql="SELECT * FROM list WHERE uname = '$user' AND completed = '$complt'";
                     $result=mysqli_query($conn,$sql);
                   ?>
@@ -44,12 +43,19 @@ session_start();
                     </ul>
                   </div>
             
+
+                  <?php
+                    $complt = "yes";
+                    $sql="SELECT * FROM list WHERE uname = '$user' AND completed = '$complt'";
+                    $result=mysqli_query($conn,$sql);
+                  ?>
                   <div class="row input-group" id="completed" onclick="completed()">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">First item</li>
-                      <li class="list-group-item">Second item</li>
-                      <li class="list-group-item">Third item</li>
-                      <li class="list-group-item">Fourth item</li>
+                    <?php
+                        while($name=$result->fetch_assoc()){
+                        echo "<li class='list-group-item'>".$name["place"]."</li>";
+                         }
+                         ?>
                     </ul>
                   </div>
                   </div>
