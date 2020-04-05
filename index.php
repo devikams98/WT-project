@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <html>
     <head>
         <title>login/reg form</title>
@@ -18,17 +22,31 @@
             <input type="text" name="user" class="input-feild" placeholder="User Id" required><br><br>
             <input type="password" name="pswd" class="input-feild" placeholder="Enter password" required><br><br>
             <button type="submit" value="submit" name="submit" class="submit-btn">Log in</button>
+            <?php
+                if($_SESSION["eror"] == 1){
+                echo "<br><br><p>"."incorrect username or password"."</p>";}
+                ?>
             </form>
+
+            
             
             <form id="register" class="input-group" onclick="register()" action="signup.php" method="POST">
                     <input type="text" name="user" class="input-feild" placeholder="User Id" required><br><br>
                     <input type="email" name="email" class="input-feild" placeholder="Email Id" required><br><br>
                     <input type="password" name="pswd" class="input-feild" placeholder="Enter password" required><br><br>
-                    <input type="checkbox" class="chech-box"><span>I agree to the terms and conditions</span>
                     <button type="submit" name="submit" value="submit" class="submit-btn">Register</button>
+                    <?php
+                     // if($_SESSION["eror1"] == 2){
+                       //echo "<br><br><p>"."username already exists, try different username"."</p>";}
+                      ?>
             </form>
+            </form>
+           
             </div>
+
+            
         </div>
+        
 
         <script>
         var x=document.getElementById("login");

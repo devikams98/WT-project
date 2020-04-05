@@ -36,6 +36,8 @@ session_start();
                 <div class="row input-group" id="bucketlist">
                     <ul class="list-group list-group-flush">
                     <?php
+                        if(! $name=$result->fetch_assoc())
+                        echo "<li class='list-group-item'>"." list is empty"."</li>";
                         while($name=$result->fetch_assoc()){
                         echo "<li class='list-group-item'>".$name["place"]."</li>";
                          }
@@ -52,6 +54,8 @@ session_start();
                   <div class="row input-group" id="completed" onclick="completed()">
                     <ul class="list-group list-group-flush">
                     <?php
+                        if(! $name=$result->fetch_assoc())
+                        echo "<li class='list-group-item'>"." list is empty"."</li>";
                         while($name=$result->fetch_assoc()){
                         echo "<li class='list-group-item'>".$name["place"]."</li>";
                          }
