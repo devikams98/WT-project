@@ -1,6 +1,6 @@
 <?php
 
-echo "..";
+
 
 $submit = $_POST['submit'];
 $user = strip_tags(($_POST['user']));
@@ -32,7 +32,8 @@ if(empty($user) || empty($email) || empty($pswd) ){
         }else{
             $sql = "INSERT INTO users VALUES('$user','$email','$pswd')";
             mysqli_query($conn,$sql);
-            
+            header("Location: index.php");
+            exit();
         }
        }
     }

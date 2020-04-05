@@ -14,11 +14,10 @@
                 </div> 
                 
                
-            <form id="login" class="input-group">
-            <input type="text" class="input-feild" placeholder="User Id" required><br><br>
-            <input type="text" class="input-feild" placeholder="Enter password" required><br><br>
-            <input type="checkbox" class="chech-box"><span>Remember password</span>
-            <button type="submit" name="submit2" class="submit-btn">Log in</button>
+            <form id="login" class="input-group" action="login.php" method="POST">
+            <input type="text" name="user" class="input-feild" placeholder="User Id" required><br><br>
+            <input type="password" name="pswd" class="input-feild" placeholder="Enter password" required><br><br>
+            <button type="submit" value="submit" name="submit" class="submit-btn">Log in</button>
             </form>
             
             <form id="register" class="input-group" onclick="register()" action="signup.php" method="POST">
