@@ -14,9 +14,10 @@
             <div class="form-box">
                  <div class="button-box">
                     <div id="btn"></div>
+                    
                     <button type="button" class="toggle-btn" onclick="bucketlist()">Bucket list</button>
                     <button type="button" class="toggle-btn" onclick="completed()">Completed</button>
-
+                      
                 </div> 
                 
                <div class="container">
