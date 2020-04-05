@@ -1,3 +1,6 @@
 dbname traveldiary
 
 CREATE TABLE `traveldiary`.`users` ( `uname` VARCHAR(20) NOT NULL , `email` VARCHAR(20) NOT NULL , `pswd` VARCHAR(20) NOT NULL , PRIMARY KEY (`uname`)) ENGINE = InnoDB; 
+
+
+CREATE TABLE `traveldiary`.`list` ( `uname` VARCHAR(20) NOT NULL , `place` VARCHAR(20) NOT NULL , `completed` VARCHAR(3) NOT NULL ) ENGINE = InnoDB; 

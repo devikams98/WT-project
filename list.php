@@ -19,14 +19,23 @@
                     <button type="button" class="toggle-btn" onclick="completed()">Completed</button>
                       
                 </div> 
+
+                <?php
+                    include_once 'db.php';
+                    $user = 'gais';
+                   // $table=$_SESSION["username"];
+                    $sql="SELECT * FROM list WHERE uname = '$user' AND completed = 'no'";
+                    $result=mysqli_query($conn,$sql);
+                  ?>
                 
                <div class="container">
                 <div class="row input-group" id="bucketlist">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">First item</li>
-                      <li class="list-group-item">Second item</li>
-                      <li class="list-group-item">Third item</li>
-                      <li class="list-group-item">Fourth item</li>
+                    <?php
+                        while($name=$result->fetch_assoc()){
+                        echo "<li>".$name["place"]."</li>";
+                         }
+                         ?>
                     </ul>
                   </div>
             
