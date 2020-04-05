@@ -21,6 +21,8 @@ if($submit){
             header("Location: index.php?login=eror");
             exit();  
         }else{
+            session_start();
+            $_SESSION["username"]=$user;
             header("Location: list.php");
         }
     }

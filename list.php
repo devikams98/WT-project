@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <html>
     <head>
         <title>wishlist</title>
@@ -22,9 +26,10 @@
 
                 <?php
                     include_once 'db.php';
-                    $user = 'gais';
+                    $user = $_SESSION["username"];   ////////
                    // $table=$_SESSION["username"];
-                    $sql="SELECT * FROM list WHERE uname = '$user' AND completed = 'no'";
+                    $complt = 'no';
+                    $sql="SELECT * FROM list WHERE uname = '$user' AND completed = '$complt'";
                     $result=mysqli_query($conn,$sql);
                   ?>
                 
@@ -33,7 +38,7 @@
                     <ul class="list-group list-group-flush">
                     <?php
                         while($name=$result->fetch_assoc()){
-                        echo "<li>".$name["place"]."</li>";
+                        echo "<li class='list-group-item'>".$name["place"]."</li>";
                          }
                          ?>
                     </ul>
