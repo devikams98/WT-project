@@ -15,6 +15,10 @@ session_start();
     </head>
     <body>
         <div class="hero">
+        <br><br>
+        <a href="index.php"> <button type="button" style="float: right;" class="btn btn-danger m-2">Log Out</button> </a>
+        <button type="button" class="btn btn-info m-2" style="float: right;" data-toggle="modal" data-target="#myModal">Add</button>
+         
             <div class="form-box">
                  <div class="button-box">
                     <div id="btn"></div>
@@ -65,6 +69,32 @@ session_start();
                   </div>
             </div>
         </div>
+
+         <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+         <div class="modal-dialog">
+    
+          <!-- Modal content-->
+         <div class="modal-content">
+           <div class="modal-header">
+             
+            <h5 class="modal-title" style="float: left;">Modal Header</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+         <div class="modal-body">
+         <form id="register"  action="bucketlist.php" method="POST">
+                    <input type="text" name="place" class="form-control mt-3" placeholder="Enter the destination to be added" required><br><br>
+                    <input type="hidden" name="user" value=<?php echo $user; ?>>
+                    
+         </form>           
+         </div>
+         <div class="modal-footer">
+          <button type="submit" name="submit" value="submit" class="btn btn-default" data-dismiss="modal">Add</button>
+          </div>
+           </div>
+      
+    </div>
+  </div>
 
         <script>
         var x=document.getElementById("bucketlist");
