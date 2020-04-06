@@ -87,7 +87,9 @@ column-count: 2;
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    width: 150px;
+margin-left: 20px;
+
     background: linear-gradient(to right,#17d450,#3d7bc2);
     border: 0;
     outline: none;

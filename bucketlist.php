@@ -9,7 +9,7 @@ if($submit){
     echo "..";
 
     if(!empty($place) ){
-        $sql = "INSERT INTO list VALUES('gais',$place,'no')";
+        $sql = "INSERT INTO list VALUES('$user','$place','no')";
         mysqli_query($conn,$sql);
         header("Location: list.php?list=success");
     }

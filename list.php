@@ -17,7 +17,7 @@ session_start();
         <div class="hero">
         <br><br>
         <a href="index.php"> <button type="button" style="float: right;" class="btn btn-danger m-2">Log Out</button> </a>
-        <button type="button" class="btn btn-info m-2" style="float: right;" data-toggle="modal" data-target="#myModal">Add</button>
+        
          
             <div class="form-box">
                  <div class="button-box">
@@ -27,7 +27,7 @@ session_start();
                     <button type="button" class="toggle-btn" onclick="completed()">Completed</button>
                       
                 </div> 
-
+                
                 <?php
                     include_once 'db.php';
                     $user = $_SESSION["username"];   ////////
@@ -35,8 +35,11 @@ session_start();
                     $sql="SELECT * FROM list WHERE uname = '$user' AND completed = '$complt'";
                     $result=mysqli_query($conn,$sql);
                   ?>
+
+
                 
                <div class="container">
+               <button type="button" class="btn btn-info mr-4" style="float: right;" data-toggle="modal" data-target="#myModal">Add to list</button>
                 <div class="row input-group" id="bucketlist">
                     <ul class="list-group list-group-flush">
                     <?php
@@ -48,7 +51,7 @@ session_start();
                          ?>
                     </ul>
                   </div>
-            
+                
 
                   <?php
                     $complt = "yes";
@@ -81,21 +84,26 @@ session_start();
             <h5 class="modal-title" style="float: left;">Modal Header</h5>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
+          <form  class="input-group" action="bucketlist.php" method="POST">
          <div class="modal-body">
-         <form id="register"  action="bucketlist.php" method="POST">
-                    <input type="text" name="place" class="form-control mt-3" placeholder="Enter the destination to be added" required><br><br>
-                    <input type="hidden" name="user" value=<?php echo $user; ?>>
+         
+         
+                    <input type="text" name="place" class="form-control my-2" placeholder="Enter the destination to be added" required><br><br>
+                    <input type="hidden" name="user" value="<?php echo $user; ?>">
+                  
                     
-         </form>           
+                  
          </div>
-         <div class="modal-footer">
-          <button type="submit" name="submit" value="submit" class="btn btn-default" data-dismiss="modal">Add</button>
-          </div>
+         <button type="submit" name="submit" value="submit" class="btn btn-default">Add Item</button>
+       <!--   <button type="submit" name="submit" value="submit" class="btn btn-default" data-dismiss="modal">Add</button>
+                        -->  
+          </form>  
            </div>
       
     </div>
   </div>
 
+  
         <script>
         var x=document.getElementById("bucketlist");
         var y=document.getElementById("completed");
