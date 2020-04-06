@@ -39,17 +39,20 @@ session_start();
 
                 
                <div class="container">
-               <button type="button" class="btn btn-info mr-4" style="float: right;" data-toggle="modal" data-target="#myModal">Add to list</button>
+               
                 <div class="row input-group" id="bucketlist">
                     <ul class="list-group list-group-flush">
                     <?php
-                        if(! $name=$result->fetch_assoc())
+                        if(mysqli_num_rows($result) == 0)
                         echo "<li class='list-group-item'>"." list is empty"."</li>";
                         while($name=$result->fetch_assoc()){
                         echo "<li class='list-group-item'>".$name["place"]."</li>";
                          }
                          ?>
                     </ul>
+                    <form  class="input-group">
+                    <button type="button" class="btn btn-info mr-4" style="float: right;" data-toggle="modal" data-target="#myModal">Add to list</button>
+                            </form>
                   </div>
                 
 
@@ -61,13 +64,16 @@ session_start();
                   <div class="row input-group" id="completed" onclick="completed()">
                     <ul class="list-group list-group-flush">
                     <?php
-                        if(! $name=$result->fetch_assoc())
+                        if(mysqli_num_rows($result) == 0)
                         echo "<li class='list-group-item'>"." list is empty"."</li>";
                         while($name=$result->fetch_assoc()){
                         echo "<li class='list-group-item'>".$name["place"]."</li>";
                          }
                          ?>
                     </ul>
+                    <form  class="input-group">
+                    <button type="button" class="btn btn-info mr-4" style="float: right;" data-toggle="modal" data-target="#myModal2">Add to list</button>
+                         </form>
                   </div>
                   </div>
             </div>
@@ -81,7 +87,7 @@ session_start();
          <div class="modal-content">
            <div class="modal-header">
              
-            <h5 class="modal-title" style="float: left;">Modal Header</h5>
+            <h5 class="modal-title" style="float: left;">Bucketlist</h5>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <form  class="input-group" action="bucketlist.php" method="POST">
@@ -102,6 +108,42 @@ session_start();
       
     </div>
   </div>
+
+
+
+  <!--modal for completed-->
+
+  <div class="modal fade" id="myModal2" role="dialog">
+         <div class="modal-dialog">
+    
+          <!-- Modal content-->
+         <div class="modal-content">
+           <div class="modal-header">
+             
+            <h5 class="modal-title" style="float: left;">Completed list</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <form  class="input-group" action="completed.php" method="POST">
+         <div class="modal-body">
+         
+         
+                    <input type="text" name="place" class="form-control mt-1" placeholder="Enter the destination to be added." required><br><br>
+                    <input type="hidden" name="user" value="<?php echo $user; ?>">
+                  
+                    
+                  
+         </div>
+         <br>
+         <button type="submit" name="submit" value="submit" class="btn btn-default">Add Item</button>
+       <!--   <button type="submit" name="submit" value="submit" class="btn btn-default" data-dismiss="modal">Add</button>
+                        -->  
+          </form>  
+           </div>
+      
+    </div>
+  </div>
+
+  <!----->
 
   
         <script>
